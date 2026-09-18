@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    margin: 0;
+    font-size: 18px;
+}
+
+
+/* Шапка */
+
+header {
+    background-color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    color: #2d7a4b;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #2d7a4b;
+}
+
+
+/* Основная часть */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+/* Разделы */
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #2d7a4b;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+/* Картинка */
+
+section img {
+    width: 350px;
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* Текст */
+
+section p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+/* Список */
+
+li {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* Таблица */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #eee;
+}
+
+
+/* Футер */
+
+footer {
+    background-color: #222;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+footer a {
+    color: lightgreen;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer p {
+    font-size: 18px;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    nav a {
+        display: block;
+        margin: 15px;
+    }
+
+    .contacts {
+        display: block;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}

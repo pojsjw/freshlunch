@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshLunch - Собрать ланч</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+</head>
+
+<body>
+<header>
+    <h1>FreshLunch</h1>
+    <nav>
+        <!-- Ссылка на главную -->
+        <a href="site.html">Главная</a>
+        <!-- Активная ссылка — текущая страница -->
+        <a href="lunch.html" id="active">Собрать ланч</a>
+        <a href="#">Акции</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+</header>
+
+<main>
+    <section class="menu-section">
+        <h2>Супы</h2>
+
+        <div class="dishes-grid">
+
+            <!-- Блюдо 1 -->
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400" alt="Томатный суп">
+                <p class="dish-name">Томатный суп</p>
+                <p class="dish-weight">300 г</p>
+                <p class="dish-price">320 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <!-- Блюдо 2 -->
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?w=400" alt="Крем-суп из тыквы">
+                <p class="dish-name">Крем-суп из тыквы</p>
+                <p class="dish-weight">300 г</p>
+                <p class="dish-price">350 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <!-- Блюдо 3 -->
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400" alt="Куриный бульон">
+                <p class="dish-name">Куриный бульон</p>
+                <p class="dish-weight">350 г</p>
+                <p class="dish-price">290 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК С ГЛАВНЫМИ БЛЮДАМИ -->
+    <section class="menu-section">
+        <h2>Главные блюда</h2>
+
+        <div class="dishes-grid">
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Курица с киноа">
+                <p class="dish-name">Курица с киноа и овощами гриль</p>
+                <p class="dish-weight">350 г</p>
+                <p class="dish-price">470 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400" alt="Лосось">
+                <p class="dish-name">Запечённый лосось</p>
+                <p class="dish-weight">280 г</p>
+                <p class="dish-price">620 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400" alt="Говядина">
+                <p class="dish-name">Говядина с гречкой</p>
+                <p class="dish-weight">320 г</p>
+                <p class="dish-price">490 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК С НАПИТКАМИ -->
+    <section class="menu-section">
+        <h2>Напитки</h2>
+
+        <div class="dishes-grid">
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400" alt="Смузи">
+                <p class="dish-name">Ягодный смузи</p>
+                <p class="dish-weight">300 мл</p>
+                <p class="dish-price">250 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="Сок">
+                <p class="dish-name">Свежевыжатый апельсиновый сок</p>
+                <p class="dish-weight">250 мл</p>
+                <p class="dish-price">220 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=400" alt="Чай">
+                <p class="dish-name">Зелёный чай</p>
+                <p class="dish-weight">400 мл</p>
+                <p class="dish-price">150 руб.</p>
+                <button class="add-btn">Добавить</button>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+
+<footer id="contacts">
+    <div class="contacts">
+        <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        <p>Email: <a href="mailto:info@freshlunch.ru">info@freshlunch.ru</a></p>
+        <p>Адрес: Москва, ул. Арбат, д. 1</p>
+    </div>
+    <p>2026 FreshLunch</p>
+</footer>
+</body>
+</html>

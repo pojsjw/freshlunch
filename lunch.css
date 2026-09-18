@@ -1,0 +1,130 @@
+/* ===== СЕТКА БЛОКА С БЛЮДАМИ (section > div) ===== */
+.dishes-grid {
+    display: grid;                       /* включаем Grid */
+    grid-template-columns: 1fr 1fr 1fr;  /* 3 колонки одинаковой ширины */
+    gap: 10px;                           /* отступ между элементами */
+}
+
+
+/* ===== КАРТОЧКА БЛЮДА (section > div > div) ===== */
+.dish-card {
+    display: flex;                       /* включаем Flex */
+    flex-direction: column;              /* элементы вертикально */
+    padding: 30px 40px;                  /* 30px сверху/снизу, 40px слева/справа */
+    border-radius: 35px;                 /* закругление углов */
+    cursor: pointer;                     /* курсор "рука" */
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13)); /* тень */
+    background-color: white;             /* белый фон */
+    border: 2px solid transparent;       /* прозрачная граница (для hover) */
+    transition: 0.2s;                    /* плавное изменение */
+}
+
+/* При наведении — граница tomato */
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+/* При наведении на карточку — меняем цвет кнопки */
+.dish-card:hover .add-btn {
+    background-color: tomato;
+    color: white;
+}
+
+
+/* ===== ИЗОБРАЖЕНИЕ (section > div > div > img) ===== */
+.dish-card img {
+    width: 100%;                         /* растягиваем на всю ширину */
+    height: 250px;
+    object-fit: cover;
+    border-radius: 35px;                 /* закругление */
+}
+
+
+/* ===== ЦЕНА ===== */
+.dish-price {
+    font-size: 24px;                     /* увеличили размер */
+    font-weight: 600;
+    margin-top: auto;                    /* ПРИЖИМАЕТ цену+вес+кнопку вниз */
+}
+
+
+/* ===== НАЗВАНИЕ ===== */
+.dish-name {
+    font-size: 22px;                     /* увеличили размер */
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+
+/* ===== ВЕС/ОБЪЁМ ===== */
+.dish-weight {
+    color: gray;                         /* серый цвет */
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+
+/* ===== КНОПКА ===== */
+.add-btn {
+    background-color: #f1eee9;           /* цвет фона */
+    margin-top: 10px;                    /* обязательный отступ сверху */
+    padding: 10px 30px;                  /* 10px сверху/снизу, 30px слева/справа */
+    border-radius: 10px;                 /* закругление */
+    cursor: pointer;                     /* курсор "рука" */
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+
+/* ===== ФУТЕР ВНИЗУ СТРАНИЦЫ ===== */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;                   /* минимум = высота экрана */
+}
+
+main {
+    flex-grow: 1;                        /* main растягивается на всё свободное место */
+}
+
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты: ≤800px */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: 1fr 1fr;  /* 2 колонки */
+    }
+
+    nav {
+        justify-content: space-between;  /* равное расстояние между ссылками */
+    }
+}
+
+
+/* Телефоны: ≤600px */
+@media (max-width: 600px) {
+    h1 {
+        text-align: center;              /* заголовок по центру */
+    }
+
+    nav {
+        flex-direction: column;          /* ссылки вертикально */
+        align-items: center;             /* выравнивание по центру */
+    }
+
+    nav a {
+        font-size: 24px;                 /* шрифт +4px (было 20px) */
+    }
+
+    section h2 {
+        text-align: center;              /* заголовки секций по центру */
+    }
+
+    .dishes-grid {
+        grid-template-columns: 1fr;      /* 1 колонка */
+    }
+}
