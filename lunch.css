@@ -1,12 +1,9 @@
-/* ===== СЕТКА БЛОКА С БЛЮДАМИ (section > div) ===== */
 .dishes-grid {
     display: grid;                       /* включаем Grid */
     grid-template-columns: 1fr 1fr 1fr;  /* 3 колонки одинаковой ширины */
     gap: 10px;                           /* отступ между элементами */
 }
 
-
-/* ===== КАРТОЧКА БЛЮДА (section > div > div) ===== */
 .dish-card {
     display: flex;                       /* включаем Flex */
     flex-direction: column;              /* элементы вертикально */
@@ -30,25 +27,20 @@
     color: white;
 }
 
-
-/* ===== ИЗОБРАЖЕНИЕ (section > div > div > img) ===== */
 .dish-card img {
     width: 100%;                         /* растягиваем на всю ширину */
     height: 250px;
     object-fit: cover;
+    object-position: center;
     border-radius: 35px;                 /* закругление */
 }
 
-
-/* ===== ЦЕНА ===== */
 .dish-price {
     font-size: 24px;                     /* увеличили размер */
     font-weight: 600;
     margin-top: auto;                    /* ПРИЖИМАЕТ цену+вес+кнопку вниз */
 }
 
-
-/* ===== НАЗВАНИЕ ===== */
 .dish-name {
     font-size: 22px;                     /* увеличили размер */
     font-weight: 500;
@@ -56,8 +48,6 @@
     margin-bottom: 5px;
 }
 
-
-/* ===== ВЕС/ОБЪЁМ ===== */
 .dish-weight {
     color: gray;                         /* серый цвет */
     font-size: 16px;
@@ -65,7 +55,6 @@
 }
 
 
-/* ===== КНОПКА ===== */
 .add-btn {
     background-color: #f1eee9;           /* цвет фона */
     margin-top: 10px;                    /* обязательный отступ сверху */
@@ -78,8 +67,6 @@
     transition: 0.2s;
 }
 
-
-/* ===== ФУТЕР ВНИЗУ СТРАНИЦЫ ===== */
 body {
     display: flex;
     flex-direction: column;
@@ -89,9 +76,6 @@ body {
 main {
     flex-grow: 1;                        /* main растягивается на всё свободное место */
 }
-
-
-/* ===== АДАПТИВНОСТЬ ===== */
 
 /* Планшеты: ≤800px */
 @media (max-width: 800px) {
@@ -103,7 +87,6 @@ main {
         justify-content: space-between;  /* равное расстояние между ссылками */
     }
 }
-
 
 /* Телефоны: ≤600px */
 @media (max-width: 600px) {
