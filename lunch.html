@@ -126,6 +126,88 @@
     </section>
 </main>
 
+<!-- ЛАБОРАТОРНАЯ РАБОТА 3: ФОРМА ЗАКАЗА -->
+<section class="order-section">
+    <h2>Оформить заказ</h2>
+    <form action="https://httpbin.org/post" method="POST" class="order-form">
+        <!-- БЛОК 1: ЗАКАЗ КЛИЕНТА -->
+        <div class="order-column">
+            <h3>Ваш заказ</h3>
+
+            <label for="soup">Суп</label>
+            <select id="soup" name="soup" required>
+                <option value="">Выберите суп</option>
+                <option value="tomatny">Томатный суп</option>
+                <option value="tykva">Крем-суп из тыквы</option>
+                <option value="kuriny">Куриный бульон</option>
+            </select>
+
+            <label for="main-dish">Главное блюдо</label>
+            <select id="main-dish" name="main_dish" required>
+                <option value="">Выберите главное блюдо</option>
+                <option value="kurica_kinoa">Курица с киноа</option>
+                <option value="losos">Запечённый лосось</option>
+                <option value="govyadina">Говядина с гречкой</option>
+            </select>
+
+            <label for="drink">Напиток</label>
+            <select id="drink" name="drink" required>
+                <option value="">Выберите напиток</option>
+                <option value="smoothie">Ягодный смузи</option>
+                <option value="orange_juice">Апельсиновый сок</option>
+                <option value="green_tea">Зелёный чай</option>
+            </select>
+
+            <label for="comment">Комментарий к заказу</label>
+            <textarea id="comment" name="comment" rows="4"></textarea>
+        </div>
+        <!-- БЛОК 2: ДАННЫЕ КЛИЕНТА -->
+        <div class="order-column">
+            <h3>Данные клиента</h3>
+
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="subscribe" name="subscribe" checked>
+                <label for="subscribe">Подписаться на рассылку</label>
+            </div>
+
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Адрес доставки</label>
+            <input type="text" id="address" name="address" required>
+
+            <fieldset class="time-choice">
+                <legend>Время доставки</legend>
+
+                <div class="radio-row">
+                    <input type="radio" id="asap" name="delivery_time_type" value="asap" required>
+                    <label for="asap">Как можно скорее</label>
+                </div>
+
+                <div class="radio-row">
+                    <input type="radio" id="exact" name="delivery_time_type" value="exact" required>
+                    <label for="exact">Указать время</label>
+                </div>
+            </fieldset>
+
+            <label for="time">Укажите время</label>
+            <input type="time" id="time" name="delivery_time" min="07:00" max="23:00" step="300">
+            <p class="time-hint">Доступное время заказа: с 07:00 до 23:00</p>
+
+            <div class="form-buttons">
+                <button type="reset" class="btn-reset">Сбросить</button>
+                <button type="submit" class="btn-submit">Отправить</button>
+            </div>
+        </div>
+    </form>
+</section>
+<!-- КОНЕЦ ЛАБОРАТОРНОЙ 3 -->
 
 <footer id="contacts">
     <div class="contacts">

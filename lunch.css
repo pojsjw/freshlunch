@@ -111,3 +111,150 @@ main {
         grid-template-columns: 1fr;      /* 1 колонка */
     }
 }
+
+/* ЛАБОРАТОРНАЯ 3: ФОРМА ЗАКАЗА */
+
+.order-section {
+    background: white;
+    padding: 35px 40px;
+    border-radius: 18px;
+    margin-top: 35px;
+}
+
+.order-section h2 {
+    font-size: 2rem;
+    color: #2d7a4b;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 6px solid #2d7a4b;
+}
+
+.order-form {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.order-column {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-column h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.order-column label {
+    font-size: 16px;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    color: #333;
+}
+
+.order-column input[type="text"],
+.order-column input[type="email"],
+.order-column input[type="tel"],
+.order-column input[type="time"],
+.order-column select,
+.order-column textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.order-column textarea {
+    resize: vertical;
+}
+
+.order-column select {
+    cursor: pointer;
+}
+
+/* Чекбокс */
+.checkbox-row,
+.radio-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.checkbox-row label,
+.radio-row label {
+    margin: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Радио-блок */
+.time-choice {
+    border: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.time-choice legend {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* Кнопки */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-reset,
+.btn-submit {
+    padding: 12px 30px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-reset {
+    background: #f1eee9;
+    color: #333;
+}
+
+.btn-reset:hover {
+    background: #e0dcd5;
+}
+
+.btn-submit {
+    background: #2d7a4b;
+    color: white;
+}
+
+.btn-submit:hover {
+    background: #245f3b;
+}
+
+.time-hint {
+    font-size: 14px;
+    color: gray;
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+/* Адаптив */
+@media (max-width: 600px) {
+    .order-form {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* КОНЕЦ ЛАБОРАТОРНОЙ 3 */
