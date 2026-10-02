@@ -2,6 +2,10 @@
 <html lang="ru">
 
 <head>
+    <!-- ЛАБОРАТОРНАЯ 4: СКРИПТЫ -->
+    <script src="dishes.js" defer></script>
+    <script src="render.js" defer></script>
+    <script src="order.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshLunch - Собрать ланч</title>
@@ -28,101 +32,20 @@
 </header>
 
 <main>
+    <!-- ЛАБОРАТОРНАЯ РАБОТА 4. Изменено -->
     <section class="menu-section">
-        <h2>Супы</h2>
-
-        <div class="dishes-grid">
-
-            <!-- Блюдо 1 -->
-            <div class="dish-card">
-                <img src="https://images.gastronom.ru/pQ3jVXAxb33JK-GS0d2iVsIcUttttl0tYkVjEuJUB4A/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzllMTFmYTgxLWRhZGQtNDJhOC05NTM0LTU1ZDMzYjk0MjlmZi5qcGc.webp" alt="Томатный суп">
-                <p class="dish-name">Томатный суп</p>
-                <p class="dish-weight">300 г</p>
-                <p class="dish-price">320 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <!-- Блюдо 2 -->
-            <div class="dish-card">
-                <img src="https://avatars.mds.yandex.net/get-vertis-journal/3911415/fbb6a65b-f670-4750-96d6-ed1d19c1475e.jpg/1600x1600" alt="Крем-суп из тыквы">
-                <p class="dish-name">Крем-суп из тыквы</p>
-                <p class="dish-weight">300 г</p>
-                <p class="dish-price">350 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <!-- Блюдо 3 -->
-            <div class="dish-card">
-                <img src="https://avatars.mds.yandex.net/get-vertis-journal/4220003/9445b10c-77b0-47fd-8c5b-2d51cef11371.jpg/1600x1600" alt="Куриный бульон">
-                <p class="dish-name">Куриный бульон</p>
-                <p class="dish-weight">350 г</p>
-                <p class="dish-price">290 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-        </div>
+    <h2>Супы</h2>
+    <div class="dishes-grid" id="soups-grid"></div>
     </section>
 
-    <!-- БЛОК С ГЛАВНЫМИ БЛЮДАМИ -->
     <section class="menu-section">
         <h2>Главные блюда</h2>
-
-        <div class="dishes-grid">
-            <div class="dish-card">
-                <img src="https://ic.pics.livejournal.com/pliskina/67435712/27310/27310_900.jpg" alt="Курица с киноа">
-                <p class="dish-name">Курица с киноа и овощами гриль</p>
-                <p class="dish-weight">350 г</p>
-                <p class="dish-price">470 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <div class="dish-card">
-                <img src="https://images.gastronom.ru/JUv119X3SJl5p6LTBsgN8yuBNV9k4Zxe6qa372C3nSY/pr:article-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzFhMzMzZTMxLWVjOWEtNDBkMi1hNzNhLTRhZGNkNGFiMjgwNi5qcGc.webp" alt="Лосось">
-                <p class="dish-name">Запечённый лосось</p>
-                <p class="dish-weight">280 г</p>
-                <p class="dish-price">620 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <div class="dish-card">
-                <img src="https://img.povar.ru/main-micro/81/a3/b7/82/kasha_grechnevaya_s_govyadinoi-782221.JPG" alt="Говядина с гречкой">
-                <p class="dish-name">Говядина с гречкой</p>
-                <p class="dish-weight">320 г</p>
-                <p class="dish-price">490 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-        </div>
+        <div class="dishes-grid" id="mains-grid"></div>
     </section>
 
-    <!-- БЛОК С НАПИТКАМИ -->
     <section class="menu-section">
         <h2>Напитки</h2>
-
-        <div class="dishes-grid">
-            <div class="dish-card">
-                <img src="https://images.gastronom.ru/UGFxAYkqQdXvno7l9Ox06NuU7NZBMwIPqvgeKQvAero/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2Q1ZjU2ZGY2LWE0N2EtNGJjOS04MGM5LTIyMGE4ZWYwYWJjMC5qcGc.webp" alt="Смузи">
-                <p class="dish-name">Ягодный смузи</p>
-                <p class="dish-weight">300 мл</p>
-                <p class="dish-price">250 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <div class="dish-card">
-                <img src="https://avatars.mds.yandex.net/i?id=8ed8994176d2eaf9b69723605c8e2bb5_l-7069324-images-thumbs&n=13" alt="Сок">
-                <p class="dish-name">Свежевыжатый апельсиновый сок</p>
-                <p class="dish-weight">250 мл</p>
-                <p class="dish-price">220 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-            <div class="dish-card">
-                <img src="https://i.pinimg.com/736x/b4/28/6f/b4286f31e030b7b48010809bc9d1d43b.jpg" alt="Чай">
-                <p class="dish-name">Зелёный чай</p>
-                <p class="dish-weight">400 мл</p>
-                <p class="dish-price">150 руб.</p>
-                <button class="add-btn">Добавить</button>
-            </div>
-
-        </div>
+        <div class="dishes-grid" id="drinks-grid"></div>
     </section>
 </main>
 
@@ -133,33 +56,18 @@
         <!-- БЛОК 1: ЗАКАЗ КЛИЕНТА -->
         <div class="order-column">
             <h3>Ваш заказ</h3>
-
-            <label for="soup">Суп</label>
-            <select id="soup" name="soup" required>
-                <option value="">Выберите суп</option>
-                <option value="tomatny">Томатный суп</option>
-                <option value="tykva">Крем-суп из тыквы</option>
-                <option value="kuriny">Куриный бульон</option>
-            </select>
-
-            <label for="main-dish">Главное блюдо</label>
-            <select id="main-dish" name="main_dish" required>
-                <option value="">Выберите главное блюдо</option>
-                <option value="kurica_kinoa">Курица с киноа</option>
-                <option value="losos">Запечённый лосось</option>
-                <option value="govyadina">Говядина с гречкой</option>
-            </select>
-
-            <label for="drink">Напиток</label>
-            <select id="drink" name="drink" required>
-                <option value="">Выберите напиток</option>
-                <option value="smoothie">Ягодный смузи</option>
-                <option value="orange_juice">Апельсиновый сок</option>
-                <option value="green_tea">Зелёный чай</option>
-            </select>
-
-            <label for="comment">Комментарий к заказу</label>
-            <textarea id="comment" name="comment" rows="4"></textarea>
+            <!-- ЛАБОРАТОРНАЯ 4: БЛОК ЗАКАЗА -->
+            <input type="hidden" id="hidden-soup" name="soup" value="">
+            <input type="hidden" id="hidden-main" name="main_dish" value="">
+            <input type="hidden" id="hidden-drink" name="drink" value="">
+            <div id="order-display">
+                <p id="order-empty">Ничего не выбрано</p>
+                <div id="order-items" style="display: none;"></div>
+                <div id="order-total" style="display: none;">
+                    <p><strong>Стоимость заказа:</strong> <span id="total-value">0 руб.</span></p>
+                </div>
+            </div>
+            <!-- КОНЕЦ ЛАБОРАТОРНОЙ 4 -->
         </div>
         <!-- БЛОК 2: ДАННЫЕ КЛИЕНТА -->
         <div class="order-column">

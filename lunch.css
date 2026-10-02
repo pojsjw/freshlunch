@@ -258,3 +258,30 @@ main {
     }
 }
 /* КОНЕЦ ЛАБОРАТОРНОЙ 3 */
+/* ЛАБОРАТОРНАЯ 4: БЛОК ЗАКАЗА */
+
+#order-display {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+#order-empty {
+    color: gray;
+    font-style: italic;
+    margin: 0;
+}
+
+#order-items p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+#order-total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+    font-size: 18px;
+}
+/* КОНЕЦ ЛАБОРАТОРНОЙ 4 */

@@ -10,7 +10,6 @@ body {
     font-size: 18px;
 }
 
-
 /* Шапка */
 
 header {
@@ -36,7 +35,6 @@ nav a:hover {
     color: #2d7a4b;
 }
 
-
 /* Основная часть */
 
 main {
@@ -44,7 +42,6 @@ main {
     max-width: 1000px;
     margin: 30px auto;
 }
-
 
 /* Разделы */
 
@@ -154,5 +151,64 @@ footer p {
     th,
     td {
         padding: 8px;
+    }
+}
+
+/* Футер внизу страницы (для главной) */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Меню как flexbox */
+nav {
+    display: flex;
+    flex-wrap: wrap;          /* разрешаем перенос на новые строки */
+    gap: 15px;                /* отступ между ссылками */
+    justify-content: center;
+}
+
+/* Активная ссылка */
+#active {
+    color: tomato;
+}
+
+/* Адаптивность главной */
+@media (max-width: 800px) {
+    nav {
+        justify-content: space-between;  /* равное расстояние */
+    }
+    section img {
+        width: 500px;                    /* ширина картинки 500px */
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        font-size: 24px;                 /* +4px */
+    }
+    section img {
+        width: 100%;                     /* картинка на всю ширину */
+    }
+    table {
+        font-size: 16px;                 /* уменьшили на 2px (было 18px) */
+    }
+}
+
+@media (max-width: 400px) {
+    table {
+        font-size: 14px;                 /* ещё -2px */
     }
 }
