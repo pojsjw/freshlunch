@@ -1,8 +1,11 @@
-// ЛАБОРАТОРНАЯ 4: ВЫБОР БЛЮД И СТОИМОСТЬ
+// ЛАБОРАТОРНАЯ 4 + 5: ЗАКАЗ
+
 let selectedDishes = {
     soup: null,
     main: null,
-    drink: null
+    salad: null,     // ЛАБА 5
+    drink: null,
+    dessert: null    // ЛАБА 5
 };
 
 // Найти блюдо по keyword
@@ -16,9 +19,10 @@ function updateOrderDisplay() {
     const itemsBlock = document.getElementById("order-items");
     const totalBlock = document.getElementById("order-total");
 
-    const hasAny = selectedDishes.soup || selectedDishes.main || selectedDishes.drink;
+    const hasAny = selectedDishes.soup || selectedDishes.main ||
+                   selectedDishes.salad || selectedDishes.drink ||
+                   selectedDishes.dessert;
 
-    // Ничего не выбрано
     if (!hasAny) {
         emptyMsg.style.display = "block";
         itemsBlock.style.display = "none";
@@ -49,6 +53,14 @@ function updateOrderDisplay() {
         html += `<p><strong>Главное блюдо:</strong> Блюдо не выбрано</p>`;
     }
 
+    // Салат (ЛАБА 5)
+    if (selectedDishes.salad) {
+        html += `<p><strong>Салат:</strong> ${selectedDishes.salad.name} — ${selectedDishes.salad.price} руб.</p>`;
+        total += selectedDishes.salad.price;
+    } else {
+        html += `<p><strong>Салат:</strong> Блюдо не выбрано</p>`;
+    }
+
     // Напиток
     if (selectedDishes.drink) {
         html += `<p><strong>Напиток:</strong> ${selectedDishes.drink.name} — ${selectedDishes.drink.price} руб.</p>`;
@@ -57,12 +69,23 @@ function updateOrderDisplay() {
         html += `<p><strong>Напиток:</strong> Напиток не выбран</p>`;
     }
 
+    // Десерт (ЛАБА 5)
+    if (selectedDishes.dessert) {
+        html += `<p><strong>Десерт:</strong> ${selectedDishes.dessert.name} — ${selectedDishes.dessert.price} руб.</p>`;
+        total += selectedDishes.dessert.price;
+    } else {
+        html += `<p><strong>Десерт:</strong> Блюдо не выбрано</p>`;
+    }
+
     itemsBlock.innerHTML = html;
     document.getElementById("total-value").textContent = total + " руб.";
 
-    document.getElementById("hidden-soup").value = selectedDishes.soup ? selectedDishes.soup.keyword : "";
-    document.getElementById("hidden-main").value = selectedDishes.main ? selectedDishes.main.keyword : "";
-    document.getElementById("hidden-drink").value = selectedDishes.drink ? selectedDishes.drink.keyword : "";
+    // Скрытые поля (ЛАБА 4 + 5)
+    document.getElementById("hidden-soup").value    = selectedDishes.soup    ? selectedDishes.soup.keyword    : "";
+    document.getElementById("hidden-main").value    = selectedDishes.main    ? selectedDishes.main.keyword    : "";
+    document.getElementById("hidden-salad").value   = selectedDishes.salad   ? selectedDishes.salad.keyword   : ""; // ЛАБА 5
+    document.getElementById("hidden-drink").value   = selectedDishes.drink   ? selectedDishes.drink.keyword   : "";
+    document.getElementById("hidden-dessert").value = selectedDishes.dessert ? selectedDishes.dessert.keyword : ""; // ЛАБА 5
 }
 
 // Клик по карточке
@@ -74,9 +97,6 @@ document.addEventListener("click", (event) => {
     const dish = findDish(keyword);
     if (!dish) return;
 
-    // Сохраняем блюдо в его категорию
     selectedDishes[dish.category] = dish;
-
-    // Обновляем блок
     updateOrderDisplay();
 });

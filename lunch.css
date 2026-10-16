@@ -285,3 +285,33 @@ main {
     font-size: 18px;
 }
 /* КОНЕЦ ЛАБОРАТОРНОЙ 4 */
+
+/* ЛАБОРАТОРНАЯ 5: ФИЛЬТРЫ */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    background: #f1eee9;
+    color: #333;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn:hover {
+    background: #e0dcd5;
+}
+
+.filter-btn.active {
+    background: tomato;
+    color: white;
+    border-color: tomato;
+}
