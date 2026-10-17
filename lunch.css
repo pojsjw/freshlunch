@@ -315,3 +315,141 @@ main {
     color: white;
     border-color: tomato;
 }
+/* ================= ЛАБОРАТОРНАЯ 6: ВАРИАНТЫ И УВЕДОМЛЕНИЯ ================= */
+
+/* Блок с вариантами ланчей */
+.combo-section {
+    background: white;
+    padding: 35px 40px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+}
+
+.combo-section h2 {
+    font-size: 2rem;
+    color: #2d7a4b;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 6px solid #2d7a4b;
+}
+
+.combo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.combo-card {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.combo-card h3 {
+    margin-bottom: 15px;
+    color: #2d7a4b;
+}
+
+.combo-items {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.combo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+}
+
+.combo-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.combo-item img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.combo-item p {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.combo-dessert {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Уведомление */
+.notification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.notification-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 16px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.notification-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.notification-box button {
+    padding: 10px 30px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    background: #2d7a4b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.notification-box button:hover {
+    background: white;
+    color: #2d7a4b;
+    border: 2px solid #2d7a4b;
+}
+
+/* Адаптив */
+@media (max-width: 800px) {
+    .combo-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .combo-grid {
+        grid-template-columns: 1fr;
+    }
+}

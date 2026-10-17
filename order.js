@@ -100,3 +100,94 @@ document.addEventListener("click", (event) => {
     selectedDishes[dish.category] = dish;
     updateOrderDisplay();
 });
+// ЛАБОРАТОРНАЯ 6: ПРОВЕРКА КОМБО И УВЕДОМЛЕНИЯ
+
+// Показать уведомление
+function showNotification(message) {
+    // Удаляем старое, если есть
+    const old = document.querySelector(".notification-overlay");
+    if (old) old.remove();
+
+    const overlay = document.createElement("div");
+    overlay.className = "notification-overlay";
+
+    const box = document.createElement("div");
+    box.className = "notification-box";
+
+    const text = document.createElement("p");
+    text.textContent = message;
+
+    const btn = document.createElement("button");
+    btn.textContent = "Окей";
+    btn.addEventListener("click", () => overlay.remove());
+
+    box.append(text, btn);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+}
+
+// Проверка комбо при отправке формы
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (event) => {
+        const s = selectedDishes.soup;
+        const m = selectedDishes.main;
+        const sal = selectedDishes.salad;
+        const d = selectedDishes.drink;
+        const des = selectedDishes.dessert;
+
+        // 1. Ничего не выбрано
+        if (!s && !m && !sal && !d && !des) {
+            event.preventDefault();
+            showNotification("Ничего не выбрано. Выберите блюда для заказа");
+            return;
+        }
+
+        // 2. Выбраны все, кроме напитка
+        if ((s || m || sal) && !d) {
+            event.preventDefault();
+            showNotification("Выберите напиток");
+            return;
+        }
+
+        // 3. Выбран суп, но нет главного/салата
+        if (s && !m && !sal) {
+            event.preventDefault();
+            showNotification("Выберите главное блюдо/салат/стартер");
+            return;
+        }
+
+        // 4. Выбран салат, но нет супа/главного
+        if (sal && !s && !m) {
+            event.preventDefault();
+            showNotification("Выберите суп или главное блюдо");
+            return;
+        }
+
+        // 5. Выбран напиток/десерт, но нет главного
+        if ((d || des) && !m && !sal && !s) {
+            event.preventDefault();
+            showNotification("Выберите главное блюдо");
+            return;
+        }
+
+        // 6. Проверка на соответствие комбо
+        const isValidCombo =
+            // 1: суп + главное + салат + напиток
+            (s && m && sal && d) ||
+            // 2: суп + главное + напиток
+            (s && m && d && !sal) ||
+            // 3: суп + салат + напиток
+            (s && sal && d && !m) ||
+            // 4: главное + салат + напиток
+            (m && sal && d && !s) ||
+            // 5: главное + напиток
+            (m && d && !s && !sal);
+
+        if (!isValidCombo) {
+            event.preventDefault();
+            showNotification("Выберите главное блюдо");
+        }
+    });
+});
