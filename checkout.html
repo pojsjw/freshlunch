@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshLunch - Оформление заказа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+    
+    <!-- ЛАБА 7 -->
+    <script src="dishes.js" defer></script>
+    <!-- ЛАБА 8 -->
+    <script src="checkout.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>FreshLunch</h1>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="lunch.html">Собрать ланч</a>
+        <a href="checkout.html" id="active">Оформление</a>
+    </nav>
+</header>
+
+<main>
+    <!-- ЛАБА 8: Состав заказа -->
+    <section class="menu-section">
+        <h2>Состав заказа</h2>
+        <div id="empty-message" style="display:none; font-size: 20px; margin-bottom: 20px;">
+            Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу <a href="lunch.html">Собрать ланч</a>.
+        </div>
+        <div class="dishes-grid" id="checkout-grid"></div>
+    </section>
+
+    <!-- ЛАБА 8: Форма -->
+    <section class="order-section" id="checkout-form-section">
+        <h2>Оформление заказа</h2>
+        <form id="checkout-form" class="order-form">
+            <div class="order-column">
+                <h3>Ваш заказ</h3>
+                <div id="checkout-items"></div>
+                <div style="margin-top: 20px; font-size: 20px;">
+                    <strong>Стоимость:</strong> <span id="checkout-total">0 руб.</span>
+                </div>
+            </div>
+
+            <div class="order-column">
+                <h3>Данные клиента</h3>
+                <label>Имя <input type="text" id="name" required></label>
+                <label>Email <input type="email" id="email" required></label>
+                <label>Телефон <input type="tel" id="phone" required></label>
+                <label>Адрес <input type="text" id="address" required></label>
+                
+                <fieldset>
+                    <legend>Доставка</legend>
+                    <label><input type="radio" name="delivery_type" value="now" required> Сразу</label>
+                    <label><input type="radio" name="delivery_type" value="by_time" required> Ко времени</label>
+                </fieldset>
+                
+                <label>Время <input type="time" id="time" min="07:00" max="23:00"></label>
+                <label>Комментарий <textarea id="comment" rows="3"></textarea></label>
+
+                <button type="submit" class="btn-submit" style="margin-top: 20px;">Отправить</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

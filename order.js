@@ -1,4 +1,4 @@
-// ЛАБОРАТОРНАЯ 4 + 5: ЗАКАЗ
+// ================= ЛАБОРАТОРНЫЕ 4, 5, 8: ЗАКАЗ + LOCALSTORAGE =================
 
 let selectedDishes = {
     soup: null,
@@ -8,103 +8,105 @@ let selectedDishes = {
     dessert: null    // ЛАБА 5
 };
 
-// Найти блюдо по keyword
-function findDish(keyword) {
-    return dishes.find(d => d.keyword === keyword);
+// ================= ЛАБОРАТОРНАЯ 8: LOCALSTORAGE =================
+// 1. Загружаем сохраненные блюда из localStorage при старте страницы
+function loadOrderFromStorage() {
+    const saved = localStorage.getItem("myOrder");
+    if (saved) {
+        const savedKeywords = JSON.parse(saved);
+        for (let key in selectedDishes) {
+            if (savedKeywords[key]) {
+                // Ищем блюдо в массиве dishes (который скачался с API в 7 лабе)
+                selectedDishes[key] = dishes.find(d => d.keyword === savedKeywords[key]) || null;
+            }
+        }
+    }
 }
 
-// Обновить блок "Ваш заказ"
-function updateOrderDisplay() {
-    const emptyMsg = document.getElementById("order-empty");
-    const itemsBlock = document.getElementById("order-items");
-    const totalBlock = document.getElementById("order-total");
+// 2. Сохраняем заказ в localStorage (только keyword)
+function saveOrderToStorage() {
+    const toSave = {};
+    for (let key in selectedDishes) {
+        toSave[key] = selectedDishes[key] ? selectedDishes[key].keyword : null;
+    }
+    localStorage.setItem("myOrder", JSON.stringify(toSave));
+}
 
-    const hasAny = selectedDishes.soup || selectedDishes.main ||
-                   selectedDishes.salad || selectedDishes.drink ||
-                   selectedDishes.dessert;
+// ================= ЛАБОРАТОРНАЯ 8: НИЖНЯЯ ПАНЕЛЬ =================
+// Вместо updateOrderDisplay (из 4 лабы) теперь обновляем нижнюю плашку
+function updateBottomPanel() {
+    const panel = document.getElementById("order-panel");
+    const totalSpan = document.getElementById("panel-total");
+    const link = document.getElementById("panel-link");
 
+    if (!panel) return; // Если мы не на странице lunch.html
+
+    let total = 0;
+    let hasAny = false;
+
+    for (let key in selectedDishes) {
+        if (selectedDishes[key]) {
+            total += selectedDishes[key].price;
+            hasAny = true;
+        }
+    }
+
+    // Если ничего не выбрано — скрываем панель
     if (!hasAny) {
-        emptyMsg.style.display = "block";
-        itemsBlock.style.display = "none";
-        totalBlock.style.display = "none";
+        panel.style.display = "none";
         return;
     }
 
-    emptyMsg.style.display = "none";
-    itemsBlock.style.display = "block";
-    totalBlock.style.display = "block";
+    panel.style.display = "flex";
+    totalSpan.textContent = total + " руб.";
 
-    let total = 0;
-    let html = "";
+    // ЛАБА 6 + 8: Проверка комбо для ссылки
+    const s = selectedDishes.soup;
+    const m = selectedDishes.main;
+    const sal = selectedDishes.salad;
+    const d = selectedDishes.drink;
 
-    // Суп
-    if (selectedDishes.soup) {
-        html += `<p><strong>Суп:</strong> ${selectedDishes.soup.name} — ${selectedDishes.soup.price} руб.</p>`;
-        total += selectedDishes.soup.price;
+    const isValidCombo = (s && m && sal && d) || (s && m && d && !sal) || (s && sal && d && !m) || (m && sal && d && !s) || (m && d && !s && !sal);
+
+    // Если комбо собрано верно — ссылка кликабельна. Иначе — серая.
+    if (isValidCombo) {
+        link.style.pointerEvents = "auto";
+        link.style.opacity = "1";
     } else {
-        html += `<p><strong>Суп:</strong> Блюдо не выбрано</p>`;
+        link.style.pointerEvents = "none";
+        link.style.opacity = "0.5";
     }
-
-    // Главное блюдо
-    if (selectedDishes.main) {
-        html += `<p><strong>Главное блюдо:</strong> ${selectedDishes.main.name} — ${selectedDishes.main.price} руб.</p>`;
-        total += selectedDishes.main.price;
-    } else {
-        html += `<p><strong>Главное блюдо:</strong> Блюдо не выбрано</p>`;
-    }
-
-    // Салат (ЛАБА 5)
-    if (selectedDishes.salad) {
-        html += `<p><strong>Салат:</strong> ${selectedDishes.salad.name} — ${selectedDishes.salad.price} руб.</p>`;
-        total += selectedDishes.salad.price;
-    } else {
-        html += `<p><strong>Салат:</strong> Блюдо не выбрано</p>`;
-    }
-
-    // Напиток
-    if (selectedDishes.drink) {
-        html += `<p><strong>Напиток:</strong> ${selectedDishes.drink.name} — ${selectedDishes.drink.price} руб.</p>`;
-        total += selectedDishes.drink.price;
-    } else {
-        html += `<p><strong>Напиток:</strong> Напиток не выбран</p>`;
-    }
-
-    // Десерт (ЛАБА 5)
-    if (selectedDishes.dessert) {
-        html += `<p><strong>Десерт:</strong> ${selectedDishes.dessert.name} — ${selectedDishes.dessert.price} руб.</p>`;
-        total += selectedDishes.dessert.price;
-    } else {
-        html += `<p><strong>Десерт:</strong> Блюдо не выбрано</p>`;
-    }
-
-    itemsBlock.innerHTML = html;
-    document.getElementById("total-value").textContent = total + " руб.";
-
-    // Скрытые поля (ЛАБА 4 + 5)
-    document.getElementById("hidden-soup").value    = selectedDishes.soup    ? selectedDishes.soup.keyword    : "";
-    document.getElementById("hidden-main").value    = selectedDishes.main    ? selectedDishes.main.keyword    : "";
-    document.getElementById("hidden-salad").value   = selectedDishes.salad   ? selectedDishes.salad.keyword   : ""; // ЛАБА 5
-    document.getElementById("hidden-drink").value   = selectedDishes.drink   ? selectedDishes.drink.keyword   : "";
-    document.getElementById("hidden-dessert").value = selectedDishes.dessert ? selectedDishes.dessert.keyword : ""; // ЛАБА 5
 }
 
-// Клик по карточке
+// ================= ЛАБОРАТОРНЫЕ 4, 5, 8: КЛИК ПО КАРТОЧКЕ =================
 document.addEventListener("click", (event) => {
     const card = event.target.closest(".dish-card");
     if (!card) return;
 
     const keyword = card.getAttribute("data-dish");
-    const dish = findDish(keyword);
+    const dish = dishes.find(d => d.keyword === keyword);
     if (!dish) return;
 
-    selectedDishes[dish.category] = dish;
-    updateOrderDisplay();
-});
-// ЛАБОРАТОРНАЯ 6: ПРОВЕРКА КОМБО И УВЕДОМЛЕНИЯ
+    // ЛАБА 8: Если кликнули по кнопке "Удалить" — убираем блюдо из заказа
+    if (event.target.closest(".delete-btn")) {
+        selectedDishes[dish.category] = null;
+    } else {
+        // Иначе — добавляем (ЛАБА 4)
+        selectedDishes[dish.category] = dish;
+    }
 
-// Показать уведомление
+    saveOrderToStorage();
+    updateBottomPanel();
+
+    // Перерисовываем карточки, чтобы обновилась кнопка (Добавить/Удалить)
+    if (typeof renderAllDishes === "function") {
+        renderAllDishes();
+    }
+});
+
+// ================= ЛАБОРАТОРНАЯ 6: УВЕДОМЛЕНИЯ =================
+// (Эту функцию мы оставили, она понадобится на странице оформления заказа)
 function showNotification(message) {
-    // Удаляем старое, если есть
     const old = document.querySelector(".notification-overlay");
     if (old) old.remove();
 
@@ -126,68 +128,8 @@ function showNotification(message) {
     document.body.appendChild(overlay);
 }
 
-// Проверка комбо при отправке формы
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", (event) => {
-        const s = selectedDishes.soup;
-        const m = selectedDishes.main;
-        const sal = selectedDishes.salad;
-        const d = selectedDishes.drink;
-        const des = selectedDishes.dessert;
-
-        // 1. Ничего не выбрано
-        if (!s && !m && !sal && !d && !des) {
-            event.preventDefault();
-            showNotification("Ничего не выбрано. Выберите блюда для заказа");
-            return;
-        }
-
-        // 2. Выбраны все, кроме напитка
-        if ((s || m || sal) && !d) {
-            event.preventDefault();
-            showNotification("Выберите напиток");
-            return;
-        }
-
-        // 3. Выбран суп, но нет главного/салата
-        if (s && !m && !sal) {
-            event.preventDefault();
-            showNotification("Выберите главное блюдо/салат/стартер");
-            return;
-        }
-
-        // 4. Выбран салат, но нет супа/главного
-        if (sal && !s && !m) {
-            event.preventDefault();
-            showNotification("Выберите суп или главное блюдо");
-            return;
-        }
-
-        // 5. Выбран напиток/десерт, но нет главного
-        if ((d || des) && !m && !sal && !s) {
-            event.preventDefault();
-            showNotification("Выберите главное блюдо");
-            return;
-        }
-
-        // 6. Проверка на соответствие комбо
-        const isValidCombo =
-            // 1: суп + главное + салат + напиток
-            (s && m && sal && d) ||
-            // 2: суп + главное + напиток
-            (s && m && d && !sal) ||
-            // 3: суп + салат + напиток
-            (s && sal && d && !m) ||
-            // 4: главное + салат + напиток
-            (m && sal && d && !s) ||
-            // 5: главное + напиток
-            (m && d && !s && !sal);
-
-        if (!isValidCombo) {
-            event.preventDefault();
-            showNotification("Выберите главное блюдо");
-        }
-    });
-});
+// ================= ЛАБОРАТОРНАЯ 8: ЗАПУСК =================
+function initOrder() {
+    loadOrderFromStorage();
+    updateBottomPanel();
+}

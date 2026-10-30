@@ -1,14 +1,14 @@
-// ЛАБОРАТОРНАЯ 4: МАССИВ БЛЮД 
-// ЛАБОРАТОРНАЯ 5: МАССИВ БЛЮД
-// (добавлено свойство kind + новые блюда + 2 новые категории)
-const dishes = [
+// ================= ЛАБОРАТОРНАЯ 7 =================
+
+// Твой массив блюд (он же будет загружен на сервер)
+const myDishes = [
     // СУПЫ
     {
         keyword: "tomatny",
         name: "Томатный суп",
         price: 320,
         category: "soup",
-        kind: "veg", // ЛАБ 5
+        kind: "veg",
         count: "300 г",
         image: "https://images.gastronom.ru/pQ3jVXAxb33JK-GS0d2iVsIcUttttl0tYkVjEuJUB4A/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzllMTFmYTgxLWRhZGQtNDJhOC05NTM0LTU1ZDMzYjk0MjlmZi5qcGc.webp"
     },
@@ -26,13 +26,13 @@ const dishes = [
         name: "Куриный бульон",
         price: 290,
         category: "soup",
-        kind: "meat", // ЛАБ 5
+        kind: "meat",
         count: "350 г",
         image: "https://sun9-54.vkuserphoto.ru/s/v1/ig2/1d_rc33OpCUUN3mC6TYWdzZF0TlKdhrzmZ_hJEjl_gNSwBE7ywbJHiRT2zAD7q-xk_5a2twiiA_OVqxEdxAPtQRe.jpg?quality=95&as=32x16,48x24,72x36,108x54,160x80,240x120,360x180,480x240,540x270,640x320,720x360,1080x540,1280x640,1440x720,1600x800&from=bu&u=LQuaxrneGHTSBvuD03LpeFUZ6CFjI7nd0y7ex4Z3ppU&cs=640x0"
     },
-     {
+    {
         keyword: "borsch",
-        name: "Борщ с говядиной", // ЛАБА 5 
+        name: "Борщ с говядиной",
         price: 380,
         category: "soup",
         kind: "meat",
@@ -41,7 +41,7 @@ const dishes = [
     },
     {
         keyword: "ukha",
-        name: "Уха из лосося", // ЛАБА 5 
+        name: "Уха из лосося",
         price: 420,
         category: "soup",
         kind: "fish",
@@ -50,7 +50,7 @@ const dishes = [
     },
     {
         keyword: "fish_soup",
-        name: "Рыбный суп с креветками", // ЛАБА 5 
+        name: "Рыбный суп с креветками",
         price: 450,
         category: "soup",
         kind: "fish",
@@ -64,7 +64,7 @@ const dishes = [
         name: "Курица с киноа",
         price: 470,
         category: "main",
-        kind: "meat", // ЛАБА 5
+        kind: "meat",
         count: "350 г",
         image: "https://ic.pics.livejournal.com/pliskina/67435712/27310/27310_900.jpg"
     },
@@ -73,7 +73,7 @@ const dishes = [
         name: "Запечённый лосось",
         price: 620,
         category: "main",
-        kind: "fish", // ЛАБА 5
+        kind: "fish",
         count: "280 г",
         image: "https://images.gastronom.ru/JUv119X3SJl5p6LTBsgN8yuBNV9k4Zxe6qa372C3nSY/pr:article-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzFhMzMzZTMxLWVjOWEtNDBkMi1hNzNhLTRhZGNkNGFiMjgwNi5qcGc.webp"
     },
@@ -82,13 +82,13 @@ const dishes = [
         name: "Говядина с гречкой",
         price: 490,
         category: "main",
-        kind: "meat", // ЛАБА 5
+        kind: "meat",
         count: "320 г",
         image: "https://img.povar.ru/main-micro/81/a3/b7/82/kasha_grechnevaya_s_govyadinoi-782221.JPG"
     },
     {
         keyword: "forel",
-        name: "Форель на гриле", // ЛАБА 5 
+        name: "Форель на гриле",
         price: 580,
         category: "main",
         kind: "fish",
@@ -97,7 +97,7 @@ const dishes = [
     },
     {
         keyword: "tofu",
-        name: "Тофу с овощами", // ЛАБА 5 
+        name: "Тофу с овощами",
         price: 420,
         category: "main",
         kind: "veg",
@@ -106,17 +106,18 @@ const dishes = [
     },
     {
         keyword: "veggie_bowl",
-        name: "Овощной боул", // ЛАБА 5 
+        name: "Овощной боул",
         price: 390,
         category: "main",
         kind: "veg",
         count: "320 г",
         image: "https://i.pinimg.com/originals/c5/81/51/c58151e1ec25423dd71930438f7a2579.png"
     },
-        // САЛАТЫ И СТАРТЕРЫ (НОВАЯ КАТЕГОРИЯ, 6 блюд)
+
+    // САЛАТЫ И СТАРТЕРЫ
     {
         keyword: "greek",
-        name: "Греческий салат", // ЛАБА 5 новое
+        name: "Греческий салат",
         price: 340,
         category: "salad",
         kind: "veg",
@@ -125,7 +126,7 @@ const dishes = [
     },
     {
         keyword: "caesar",
-        name: "Цезарь с курицей", // ЛАБА 5 новое
+        name: "Цезарь с курицей",
         price: 420,
         category: "salad",
         kind: "meat",
@@ -134,7 +135,7 @@ const dishes = [
     },
     {
         keyword: "tuna_salad",
-        name: "Салат с тунцом", // ЛАБА 5 новое
+        name: "Салат с тунцом",
         price: 450,
         category: "salad",
         kind: "fish",
@@ -143,7 +144,7 @@ const dishes = [
     },
     {
         keyword: "veggie_salad",
-        name: "Овощной салат", // ЛАБА 5 новое
+        name: "Овощной салат",
         price: 290,
         category: "salad",
         kind: "veg",
@@ -152,7 +153,7 @@ const dishes = [
     },
     {
         keyword: "caprese",
-        name: "Салат Капрезе", // ЛАБА 5 новое
+        name: "Салат Капрезе",
         price: 380,
         category: "salad",
         kind: "veg",
@@ -161,20 +162,21 @@ const dishes = [
     },
     {
         keyword: "spinach",
-        name: "Салат со шпинатом", // ЛАБА 5 новое
+        name: "Салат со шпинатом",
         price: 320,
         category: "salad",
         kind: "veg",
         count: "210 г",
         image: "https://img.povar.ru/main-micro/30/ec/40/03/salat_so_shpinatom_i_percem-848607.jpg"
     },
+
     // НАПИТКИ
     {
         keyword: "smoothie",
         name: "Ягодный смузи",
         price: 250,
         category: "drink",
-        kind: "cold", // ЛАБА 5
+        kind: "cold",
         count: "300 мл",
         image: "https://images.gastronom.ru/UGFxAYkqQdXvno7l9Ox06NuU7NZBMwIPqvgeKQvAero/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2Q1ZjU2ZGY2LWE0N2EtNGJjOS04MGM5LTIyMGE4ZWYwYWJjMC5qcGc.webp"
     },
@@ -183,22 +185,13 @@ const dishes = [
         name: "Апельсиновый сок",
         price: 220,
         category: "drink",
-        kind: "cold", // ЛАБА 5
+        kind: "cold",
         count: "250 мл",
         image: "https://avatars.mds.yandex.net/i?id=8ed8994176d2eaf9b69723605c8e2bb5_l-7069324-images-thumbs&n=13"
     },
     {
-        keyword: "green_tea",
-        name: "Зелёный чай",
-        price: 150,
-        category: "drink",
-        kind: "hot", // ЛАБА 5
-        count: "400 мл",
-        image: "https://i.pinimg.com/736x/b4/28/6f/b4286f31e030b7b48010809bc9d1d43b.jpg"
-    },
-    {
         keyword: "lemonade",
-        name: "Домашний лимонад", // ЛАБА 5 новое
+        name: "Домашний лимонад",
         price: 180,
         category: "drink",
         kind: "cold",
@@ -206,27 +199,37 @@ const dishes = [
         image: "https://images.gastronom.ru/CtSerq1cPYGxXzNAX77V6guv1UZStumSGwawFyH7xW0/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzE5NDAxZDRiLWUxOWEtNDFjMC04NTVkLWIzNTUxYjA1NjNmOS5qcGc.webp"
     },
     {
-        keyword: "black_tea",
-        name: "Чёрный чай", // ЛАБА 5 новое
+        keyword: "green_tea",
+        name: "Зелёный чай",
         price: 150,
         category: "drink",
         kind: "hot",
         count: "400 мл",
-        image: "https://ir.ozone.ru/s3/multimedia-m/w1200/6796192018.jpg"
+        image: "https://i.pinimg.com/736x/b4/28/6f/b4286f31e030b7b48010809bc9d1d43b.jpg"
+    },
+    {
+        keyword: "black_tea",
+        name: "Чёрный чай",
+        price: 150,
+        category: "drink",
+        kind: "hot",
+        count: "400 мл",
+        image: "https://media.istockphoto.com/id/1401428128/ru/фото/чашка-горячего-чая.jpg?s=612x612&w=0&k=20&c=qKSBQB1HLEUVWGM_IDM9p7Hy5FVxzUaPXpu5GT1OnY0="
     },
     {
         keyword: "coffee",
-        name: "Американо", // ЛАБА 5 новое
+        name: "Американо",
         price: 180,
         category: "drink",
         kind: "hot",
         count: "250 мл",
         image: "https://кафешашлычныйдвор.рф/wp-content/uploads/2022/03/photo.jpg"
     },
-    // ДЕСЕРТЫ (НОВАЯ КАТЕГОРИЯ, 6 блюд)
+
+    // ДЕСЕРТЫ
     {
         keyword: "tiramisu",
-        name: "Тирамису",  // ЛАБА 5 новое
+        name: "Тирамису",
         price: 350,
         category: "dessert",
         kind: "medium",
@@ -235,16 +238,16 @@ const dishes = [
     },
     {
         keyword: "cheesecake",
-        name: "Чизкейк", // ЛАБА 5 новое
+        name: "Чизкейк",
         price: 380,
         category: "dessert",
         kind: "medium",
         count: "160 г",
-        image: "https://images.gastronom.ru/_BqhFkIUh2fMkaeIGd0di-DEI5Tk0ndmEWYoLAOwlBA/pr:product-content-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2E0ZDY2ZTk3LTBjMzQtNGY0ZC1iOWJmLTkzZTUxOGFhMTc2NS5qcGc.webp"
+        image: "https://images.gastronom.ru/4nZdlJGd0bjhF1qVhpgZCSYeLcMcn0vydKy_00S2HEY/pr:article-content-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2JlYjI2YzAwLTBiMTUtNDFkMS05ZDc0LTI4ZDA3YzBkYWFhZC5qcGc.webp"
     },
     {
         keyword: "macaron",
-        name: "Макарон", // ЛАБА 5 новое
+        name: "Макарон",
         price: 120,
         category: "dessert",
         kind: "small",
@@ -253,7 +256,7 @@ const dishes = [
     },
     {
         keyword: "eclair",
-        name: "Эклер", // ЛАБА 5 новое
+        name: "Эклер",
         price: 150,
         category: "dessert",
         kind: "small",
@@ -262,7 +265,7 @@ const dishes = [
     },
     {
         keyword: "cookie",
-        name: "Печенье с шоколадом", // ЛАБА 5 новое
+        name: "Печенье с шоколадом",
         price: 100,
         category: "dessert",
         kind: "small",
@@ -271,7 +274,7 @@ const dishes = [
     },
     {
         keyword: "cake",
-        name: "Шоколадный торт", // ЛАБА 5 новое
+        name: "Шоколадный торт",
         price: 450,
         category: "dessert",
         kind: "big",
@@ -279,3 +282,50 @@ const dishes = [
         image: "https://cdn.lifehacker.ru/wp-content/uploads/2023/04/shutterstock_1532438783_1681814518-1800x900.jpg"
     }
 ];
+
+let dishes = []; 
+const API_KEY = "8b2cccec-5331-3d34-a129-996d63cb5696"; 
+const API_BASE = "https://web-basics-api-gagashaggy.msk1.amvera.tech/labs/api/dishes";
+
+// 1. Функция для отправки своих блюд на сервер (выполнится один раз)
+async function uploadMyDishes() {
+    try {
+        await fetch(`${API_BASE}/my?api_key=${API_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(myDishes)
+        });
+        console.log("Блюда отправлены на сервер");
+    } catch (e) {
+        console.log("Не удалось отправить блюда на сервер");
+    }
+}
+
+// 2. Функция загрузки (ЛАБА 7)
+async function loadDishes() {
+    try {
+        // Сначала отправляем наши блюда (чтобы они точно были на сервере)
+        await uploadMyDishes();
+        
+        // Теперь запрашиваем их с сервера
+        const response = await fetch(`${API_BASE}/my?api_key=${API_KEY}`);
+        
+        if (!response.ok) throw new Error("Ошибка API");
+        const data = await response.json();
+        dishes = data; // Берем данные с сервера
+        console.log("Блюда загружены с сервера");
+        
+    } catch (error) {
+        console.warn("API не сработал, берем локальные данные:", error);
+        dishes = myDishes; // Если сервер лег, берем локальные
+    }
+    
+    // ЛАБОРАТОРНАЯ 8: ЗАПУСК НУЖНОЙ СТРАНИЦЫ
+    // Проверяем, на какой мы странице. Если "Собрать ланч" — рисуем меню.
+    // Если "Оформить заказ" — рисуем состав заказа.
+    if (typeof renderAllDishes === "function") {
+        renderAllDishes();
+    } else if (typeof initCheckout === "function") {
+        initCheckout(); // Вызывается только на checkout.html
+    }
+}
